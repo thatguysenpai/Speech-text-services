@@ -1,0 +1,23 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+
+# Go build outputs
+*.out
+
+# Dependency directories
+/vendor/
+
+# Logs
+*.log
+
+# IDE / Editor settings
+.vscode/
+.idea/
+
+# Environment files
+.env
