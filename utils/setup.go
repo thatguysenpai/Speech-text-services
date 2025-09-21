@@ -101,5 +101,43 @@ func SetupModel() error {
 	}
 
 	fmt.Println("Model downloaded successfully ✅:", modelPath)
+
+	return nil
+}
+
+func SetupWhisper(logger *log.Logger) error {
+
+	repoDir := "whisper.cpp"
+	if _, err := os.Stat(repoDir); os.IsNotExist(err) {
+		logger.Println("whisper.cpp not found, cloning...")
+		cmd := exec.Command("git", "clone", "https://github.com/ggerganov/whisper.cpp.git", repoDir)
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+		if err := cmd.Run(); err != nil {
+			return fmt.Errorf("failed to clone whisper.cpp: %v", err)
+		}
+	} else {
+		logger.Println("whisper.cpp already exists")
+	}
+
+
+	makeCmd := exec.Command("make")
+	makeCmd.Dir = repoDir
+	makeCmd.Stdout = os.Stdout
+	makeCmd.Stderr = os.Stderr
+	if err := makeCmd.Run(); err != nil {
+		return fmt.Errorf("failed to build whisper.cpp: %v", err)
+	}
+	logger.Println("whisper.cpp built successfully")
+	absRepo, err := filepath.Abs(repoDir)
+	if err != nil {
+		return fmt.Errorf("failed to get absolute path for whisper.cpp: %v", err)
+	}
+
+	os.Setenv("CGO_CFLAGS", "-I"+absRepo)
+	os.Setenv("CGO_LDFLAGS", "-L"+absRepo+" -lwhisper")
+	logger.Printf("Set CGO_CFLAGS=%s", os.Getenv("CGO_CFLAGS"))
+	logger.Printf("Set CGO_LDFLAGS=%s", os.Getenv("CGO_LDFLAGS"))
+
 	return nil
 }
