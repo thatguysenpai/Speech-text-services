@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"sts/utils"
+)
 
 func main() {
-	fmt.Println("hello sts...")
+
+	utils.Init()
+
+	lg := utils.Logger
+
+	lg.Println("hello sts...")
+
+	utils.SetupFFmpeg()
 }
