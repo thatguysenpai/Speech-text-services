@@ -1,0 +1,402 @@
+[
+  {
+    "start": 0,
+    "end": 5480000000,
+    "text": "Good day everyone. My name is Selamot Umar Arto and I'm part of the team behind PAD by"
+  },
+  {
+    "start": 5480000000,
+    "end": 11120000000,
+    "text": "LOD, an AI-powered visual navigation system designed to empower visually impaired individuals"
+  },
+  {
+    "start": 11120000000,
+    "end": 18000000000,
+    "text": "with independence, safety and dignity. Visual impairment isn't just a health issue, it's"
+  },
+  {
+    "start": 18000000000,
+    "end": 23640000000,
+    "text": "a barrier to education, independence and dignity. According to the World Health Organization,"
+  },
+  {
+    "start": 23640000000,
+    "end": 28600000000,
+    "text": "over 2.2 billion people live with visual impairment and 1 billion luck access to basic"
+  },
+  {
+    "start": 28600000000,
+    "end": 34380000000,
+    "text": "solutions like glasses or surgery. In Nigeria alone, there are approximately 1.5 million"
+  },
+  {
+    "start": 34380000000,
+    "end": 38960000000,
+    "text": "visually impaired individuals, many of whom struggle daily with tucks as simple as not"
+  },
+  {
+    "start": 38960000000,
+    "end": 46320000000,
+    "text": "getting safely. Many individuals rely on others for help which"
+  },
+  {
+    "start": 46320000000,
+    "end": 51560000000,
+    "text": "limit their independence and exposes them to rigs like accident or get ill loss. And"
+  },
+  {
+    "start": 51560000000,
+    "end": 56640000000,
+    "text": "it's not just about mobility, it's about dignity. Limited access to affordable and effective"
+  },
+  {
+    "start": 56640000000,
+    "end": 62560000000,
+    "text": "navigation, it leaves millions feeling excluded from society."
+  },
+  {
+    "start": 62560000000,
+    "end": 68720000000,
+    "text": "In Nigeria, red are often poorly designed, sidewalks are uneven and public spaces rarely"
+  },
+  {
+    "start": 68720000000,
+    "end": 74480000000,
+    "text": "consider accessibility. For example, think about university campuses when nearly 30%"
+  },
+  {
+    "start": 74480000000,
+    "end": 79200000000,
+    "text": "of students with disabilities face significant challenges navigating through lecture halls,"
+  },
+  {
+    "start": 79200000000,
+    "end": 83760000000,
+    "text": "libraries and hostels. They depend heavily on friends, family or strangers to get them"
+  },
+  {
+    "start": 83760000000,
+    "end": 89720000000,
+    "text": "and when no one is available, the rigs get ill loss or injured along the road. This is"
+  },
+  {
+    "start": 89720000000,
+    "end": 96680000000,
+    "text": "a problem we determined to solve. Our solution path pilots and AI powered visual"
+  },
+  {
+    "start": 96680000000,
+    "end": 105040000000,
+    "text": "navigation system, the orchas in a new era of independence for visually impaired individuals."
+  },
+  {
+    "start": 105040000000,
+    "end": 111400000000,
+    "text": "Our solution is this advanced AI technology. Our system detect obstacles, recognize environment"
+  },
+  {
+    "start": 111400000000,
+    "end": 119040000000,
+    "text": "and guide users via audio cues and haptic feedback. The hardware includes a smartphone,"
+  },
+  {
+    "start": 119040000000,
+    "end": 125520000000,
+    "text": "Arduino Nano, helmet and belt, but the software integrate tools like flutter, bubble map, object"
+  },
+  {
+    "start": 125520000000,
+    "end": 132760000000,
+    "text": "detection and path planning models. Users receive little time obstacle detection and"
+  },
+  {
+    "start": 132760000000,
+    "end": 138560000000,
+    "text": "step-by-step navigation instructions to voice guidance and vibration. A system that is not"
+  },
+  {
+    "start": 138560000000,
+    "end": 143840000000,
+    "text": "only cost effective but also intuitive and life changing."
+  },
+  {
+    "start": 143840000000,
+    "end": 148280000000,
+    "text": "Path payload addresses the challenges faced by visually impaired individuals and several"
+  },
+  {
+    "start": 148280000000,
+    "end": 153800000000,
+    "text": "ways. It provides a little time obstacle detection which ensures users avoid hazard"
+  },
+  {
+    "start": 153800000000,
+    "end": 160280000000,
+    "text": "like uneven surfaces, pose or vehicles. Voice guided navigation helps them reach their destination"
+  },
+  {
+    "start": 160280000000,
+    "end": 165520000000,
+    "text": "safely and independently and lastly haptic feedback which provides static alert for added"
+  },
+  {
+    "start": 165520000000,
+    "end": 171360000000,
+    "text": "awareness. Most importantly our solution is affordable, making it accessible to those"
+  },
+  {
+    "start": 171360000000,
+    "end": 176360000000,
+    "text": "who need it the most. Student at universities can now move between classes, libraries and"
+  },
+  {
+    "start": 176360000000,
+    "end": 181640000000,
+    "text": "boosters without relying on others. Working professionals can commit safely to their jobs."
+  },
+  {
+    "start": 181640000000,
+    "end": 186440000000,
+    "text": "Families caress to ensure that their loved ones aren't dependent on strangers for basic"
+  },
+  {
+    "start": 186440000000,
+    "end": 193080000000,
+    "text": "mobility. With mid-significant progress in developing path payloads, whereby we've built"
+  },
+  {
+    "start": 193080000000,
+    "end": 198280000000,
+    "text": "a functional, fully functional prototype that integrate AI-powered navigation, mobile"
+  },
+  {
+    "start": 198280000000,
+    "end": 203520000000,
+    "text": "app functionality and haptic feedback. Our user-centric design has been tested in real-world"
+  },
+  {
+    "start": 203520000000,
+    "end": 208880000000,
+    "text": "scenarios and the feedback has been overwhelmingly positive. And futures like lived time mapping"
+  },
+  {
+    "start": 208880000000,
+    "end": 214600000000,
+    "text": "advanced sensor technology and integration with smart devices have already been implemented."
+  },
+  {
+    "start": 214600000000,
+    "end": 223040000000,
+    "text": "To ensure path payloads which is as many possible people as possible, we've developed a sustainable"
+  },
+  {
+    "start": 223040000000,
+    "end": 229240000000,
+    "text": "business model. The one-time device costs of 50,000-era, making it affordable for average"
+  },
+  {
+    "start": 229240000000,
+    "end": 235240000000,
+    "text": "Nigerian and we offer two subscriptions, the basic which goes for a 5,000-era access to"
+  },
+  {
+    "start": 235240000000,
+    "end": 240400000000,
+    "text": "core features and premium plan which goes for 10,000-era with additional features parity"
+  },
+  {
+    "start": 240400000000,
+    "end": 246600000000,
+    "text": "support and regular software options. With an initial investment of 25,000-era for development"
+  },
+  {
+    "start": 246600000000,
+    "end": 253400000000,
+    "text": "cost, we project significant growth in the first year with a debuts sale of 1,000-unit"
+  },
+  {
+    "start": 253400000000,
+    "end": 260400000000,
+    "text": "which goes for 50,000-50 million-era, subscription revenue of 60 million-era, assuming 50% of"
+  },
+  {
+    "start": 260400000000,
+    "end": 266400000000,
+    "text": "customers opt in for basic plan and 20% of them for premium plan. Projected growth of"
+  },
+  {
+    "start": 266400000000,
+    "end": 273120000000,
+    "text": "20% annually over the next 3 years. The global market for assistive technologies is projected"
+  },
+  {
+    "start": 273120000000,
+    "end": 280040000000,
+    "text": "to reach 31.4 billion dollars by 2025, yet individually impaired community remain on the"
+  },
+  {
+    "start": 280040000000,
+    "end": 285880000000,
+    "text": "sub competitors like Airy's Vision and Icesite offer solutions but at prices ranging from"
+  },
+  {
+    "start": 285880000000,
+    "end": 292400000000,
+    "text": "2,000 to 5,000 dollars. They are out of reach for most Nigerians."
+  },
+  {
+    "start": 292400000000,
+    "end": 297960000000,
+    "text": "Path payloads, competitive advantages lies in advanced AI technology for seeing understanding"
+  },
+  {
+    "start": 297960000000,
+    "end": 302840000000,
+    "text": "and path planning. User-centric design that parroted accessibility and ease of use are"
+  },
+  {
+    "start": 302840000000,
+    "end": 308840000000,
+    "text": "affordable pricing that makes independence achievable for everyone. And ongoing customer"
+  },
+  {
+    "start": 308840000000,
+    "end": 314320000000,
+    "text": "support to ensure users get the most out of the system."
+  },
+  {
+    "start": 314320000000,
+    "end": 319800000000,
+    "text": "Our solution aligns directly with some of the SDGs which include the SDG3, Good Health"
+  },
+  {
+    "start": 319800000000,
+    "end": 327640000000,
+    "text": "and Well-being, SDG4, Quality Education, SDG10, Reducing Equality and SDG11 Sustainable Cities"
+  },
+  {
+    "start": 327640000000,
+    "end": 332160000000,
+    "text": "and Communities. We are not just building technology, we are building"
+  },
+  {
+    "start": 332160000000,
+    "end": 337920000000,
+    "text": "hope. Hope for studenthood dream of independence, hope for workers striving to reach their"
+  },
+  {
+    "start": 337920000000,
+    "end": 342640000000,
+    "text": "full potential, hope for families seeking dignity and safety for their loved ones. We"
+  },
+  {
+    "start": 342640000000,
+    "end": 348000000000,
+    "text": "believe that innovation should serve humanity and our solution does exactly that by choosing"
+  },
+  {
+    "start": 348000000000,
+    "end": 352200000000,
+    "text": "us, you are not just supporting a project, you are hoping to create a future where no"
+  },
+  {
+    "start": 352200000000,
+    "end": 357280000000,
+    "text": "one is left behind because of their disability."
+  },
+  {
+    "start": 357280000000,
+    "end": 362560000000,
+    "text": "There is a demo of our app."
+  },
+  {
+    "start": 362560000000,
+    "end": 368400000000,
+    "text": "Pilot, where am I?"
+  },
+  {
+    "start": 368400000000,
+    "end": 373840000000,
+    "text": "You are currently a department of electrical and computer engineering. Zarya 800-10106,"
+  },
+  {
+    "start": 373840000000,
+    "end": 376160000000,
+    "text": "Kaduna, Nigeria."
+  },
+  {
+    "start": 376160000000,
+    "end": 380240000000,
+    "text": "Pilot, take me to ABU, not Git."
+  },
+  {
+    "start": 380240000000,
+    "end": 383760000000,
+    "text": "Head north."
+  },
+  {
+    "start": 383760000000,
+    "end": 387600000000,
+    "text": "Pilot, stop navigation."
+  },
+  {
+    "start": 387600000000,
+    "end": 389120000000,
+    "text": "Navigation stopped."
+  },
+  {
+    "start": 389120000000,
+    "end": 393200000000,
+    "text": "My empowering individuals would feature our entire mind."
+  },
+  {
+    "start": 393200000000,
+    "end": 398040000000,
+    "text": "To navigate independently, safely and confidently, we are not just solving a problem, we are"
+  },
+  {
+    "start": 398040000000,
+    "end": 402840000000,
+    "text": "destroying dignity. This competition represents a crucial opportunity for us. We know we"
+  },
+  {
+    "start": 402840000000,
+    "end": 406760000000,
+    "text": "will not only validate our hard work but also provide the resources we need to skip"
+  },
+  {
+    "start": 406760000000,
+    "end": 412760000000,
+    "text": "our pilots and bring this life-changing solution to thousands of Nigerians and eventually"
+  },
+  {
+    "start": 412760000000,
+    "end": 413760000000,
+    "text": "lead the world."
+  },
+  {
+    "start": 413760000000,
+    "end": 419960000000,
+    "text": "Join us in turning this vision into reality together. Let's build a more inclusive future."
+  },
+  {
+    "start": 419960000000,
+    "end": 421760000000,
+    "text": "One step at a time. Thank you."
+  },
+  {
+    "start": 421760000000,
+    "end": 425360000000,
+    "text": "We will be team behind Pilot."
+  },
+  {
+    "start": 425360000000,
+    "end": 432120000000,
+    "text": "Hamza Seidou, the hardware and software engineer, slumber to her arrow, the team lead, and"
+  },
+  {
+    "start": 432120000000,
+    "end": 435360000000,
+    "text": "after a man, after a hymn to mobile devulupa."
+  }
+]

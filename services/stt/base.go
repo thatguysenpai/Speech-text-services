@@ -19,7 +19,7 @@ import (
 func ProcessAllVideos(logger *log.Logger) error {
 	videoDir := "Video"
 	audioDir := "audio"
-	ttsDir := "tts"
+	ttsDir := "stt"
 	modelPath := "models/ggml-base.en.bin"
 
 	// Ensure required folders exist
@@ -153,7 +153,6 @@ func ProcessSingleVideo(videoPath, audioDir, ttsDir, modelPath string, logger *l
 
 	return nil
 }
-
 
 // readWavToFloat32 reads a wav file (PCM) and returns mono float32 samples and sample rate.
 // If the file has multiple channels it averages them into mono.
