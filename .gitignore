@@ -25,3 +25,7 @@
 
 models/*
 scripts/whisper.cpp
+
+video/*
+audio/*
+tts/*
