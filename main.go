@@ -1,6 +1,7 @@
 package main
 
 import (
+	"sts/services/stt"
 	"sts/utils"
 )
 
@@ -15,4 +16,8 @@ func main() {
 	// download setup
 	utils.SetupFFmpeg()
 	utils.SetupModel()
+
+	lg.Println("processing videos")
+
+	stt.ProcessAllVideos(lg)
 }
