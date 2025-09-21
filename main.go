@@ -12,5 +12,7 @@ func main() {
 
 	lg.Println("hello sts...")
 
+	// download setup
 	utils.SetupFFmpeg()
+	utils.SetupModel()
 }

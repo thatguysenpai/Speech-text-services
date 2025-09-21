@@ -21,3 +21,6 @@
 
 # Environment files
 .env
+
+
+models/*
