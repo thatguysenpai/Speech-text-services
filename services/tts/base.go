@@ -5,6 +5,7 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"errors"
+	"log"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -23,7 +24,7 @@ type Endpoint struct {
 }
 
 // Main TTS function
-func TTS(text string, voice Voice, outputFilePath string, playSound bool) error {
+func TTS(text string, voice Voice, outputFilePath string, playSound bool, logger *log.Logger) error {
 	// Validate args
 	if err := validateArgs(text, voice); err != nil {
 		return err
@@ -32,14 +33,16 @@ func TTS(text string, voice Voice, outputFilePath string, playSound bool) error 
 	// Load endpoints
 	endpoints, err := loadEndpoints()
 	if err != nil {
+		logger.Printf("An error as occured, err: %v", err)
 		return err
 	}
 
 	var success bool
 	for _, endpoint := range endpoints {
-		audioBytes, err := fetchAudioBytes(endpoint, text, voice)
+		audioBytes, err := fetchAudioBytes(endpoint, text, voice, logger)
 		if err == nil && audioBytes != nil {
 			if err := saveAudioFile(outputFilePath, audioBytes); err != nil {
+				logger.Printf("An error as occured, err: %v", err)
 				return err
 			}
 
@@ -68,7 +71,7 @@ func saveAudioFile(outputFilePath string, audioBytes []byte) error {
 }
 
 // Fetch audio bytes
-func fetchAudioBytes(endpoint Endpoint, text string, voice Voice) ([]byte, error) {
+func fetchAudioBytes(endpoint Endpoint, text string, voice Voice, logger *log.Logger) ([]byte, error) {
 	textChunks := splitText(text)
 	audioChunks := make([]string, len(textChunks))
 	var wg sync.WaitGroup
@@ -86,6 +89,7 @@ func fetchAudioBytes(endpoint Endpoint, text string, voice Voice) ([]byte, error
 
 			resp, err := http.Post(endpoint.URL, "application/json", bytes.NewBuffer(reqBody))
 			if err != nil {
+				logger.Printf("An error as occured, err: %v", err)
 				failed = true
 				return
 			}
@@ -96,14 +100,15 @@ func fetchAudioBytes(endpoint Endpoint, text string, voice Voice) ([]byte, error
 				return
 			}
 
-			var result map[string]string
+			var result map[string]any
 			if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
+				logger.Printf("An error as occured, err: %v", err)
 				failed = true
 				return
 			}
 
 			mu.Lock()
-			audioChunks[i] = result[endpoint.Response]
+			audioChunks[i] = result[endpoint.Response].(string)
 			mu.Unlock()
 		}(i, chunk)
 	}
