@@ -29,3 +29,6 @@ scripts/whisper.cpp
 Video/*
 audio/*
 stt/*
+
+
+*.mp3

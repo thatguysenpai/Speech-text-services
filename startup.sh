@@ -2,6 +2,8 @@
 
 set -e
 
+sudo apt install -y build-essential cmake
+
 ROOT_DIR="$(pwd)"
 SCRIPTS_DIR="$ROOT_DIR/scripts"
 WHISPER_DIR="$SCRIPTS_DIR/whisper.cpp"
