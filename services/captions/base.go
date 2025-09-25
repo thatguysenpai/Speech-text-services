@@ -1,52 +1,16 @@
-package autoshorts
+package captions
 
 import (
-	"context"
+	// "context"
 	"fmt"
 	"os"
 	"os/exec"
 	"strconv"
 	"strings"
 
-	openai "github.com/sashabaranov/go-openai"
 )
 
-// ExtractAudio extracts mono 16kHz audio from the video using FFmpeg.
-func ExtractAudio(videoPath, audioPath string) error {
-	cmd := exec.Command("ffmpeg",
-		"-i", videoPath,
-		"-acodec", "pcm_s16le",
-		"-ac", "1",
-		"-ar", "16000",
-		audioPath,
-		"-y", // overwrite output
-	)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	return cmd.Run()
-}
 
-// GenerateCaptions uses OpenAI Whisper API to transcribe audio.
-func GenerateCaptions(apiKey, audioPath string) ([]openai.TranscriptionSegment, error) {
-	client := openai.NewClient(apiKey)
-
-	req := openai.AudioRequest{
-		Model:    openai.Whisper1, // Whisper model
-		FilePath: audioPath,
-	}
-	resp, err := client.CreateTranscription(context.Background(), req)
-	if err != nil {
-		return nil, err
-	}
-
-	// OpenAI API currently returns plain text without timestamps.
-	segment := openai.TranscriptionSegment{
-		Text:  resp.Text,
-		Start: 0.0,
-		End:   0.0,
-	}
-	return []openai.TranscriptionSegment{segment}, nil
-}
 
 // GetAudioDuration returns the length of the audio file in seconds using ffprobe.
 func GetAudioDuration(audioPath string) (float64, error) {

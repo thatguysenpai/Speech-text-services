@@ -1,4 +1,4 @@
-package autoshorts
+package upload
 
 import (
 	"context"
