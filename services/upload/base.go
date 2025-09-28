@@ -2,7 +2,6 @@ package upload
 
 import (
 	"context"
-	"fmt"
 	"log"
 	"os"
 	"os/exec"
@@ -12,7 +11,7 @@ import (
 	"github.com/joho/godotenv"
 )
 
-// YouTubeVideoUploader encapsulates upload configuration
+
 type YouTubeVideoUploader struct {
 	Email    string
 	Password string

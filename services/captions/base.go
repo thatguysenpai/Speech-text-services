@@ -1,18 +1,13 @@
 package captions
 
 import (
-	// "context"
 	"fmt"
 	"os"
 	"os/exec"
 	"strconv"
 	"strings"
-
 )
 
-
-
-// GetAudioDuration returns the length of the audio file in seconds using ffprobe.
 func GetAudioDuration(audioPath string) (float64, error) {
 	cmd := exec.Command("ffprobe",
 		"-v", "error",
@@ -96,7 +91,7 @@ func BurnSubtitles(videoPath, subtitlePath, outputVideoPath, fontPath string) er
 	return cmd.Run()
 }
 
-// Main pipeline
+
 func ProcessVideo(apiKey, videoPath string) error {
 	audioPath := "temp_audio.wav"
 	subtitlePath := "temp_subtitles.srt"
@@ -108,22 +103,6 @@ func ProcessVideo(apiKey, videoPath string) error {
 		_ = os.Remove(subtitlePath)
 	}()
 
-	// 1. Extract audio
-	if err := ExtractAudio(videoPath, audioPath); err != nil {
-		return fmt.Errorf("failed to extract audio: %w", err)
-	}
-
-	// 2. Transcribe audio
-	segments, err := GenerateCaptions(apiKey, audioPath)
-	if err != nil {
-		return fmt.Errorf("failed to transcribe: %w", err)
-	}
-
-	// 3. Create subtitles
-	if err := CreateSubtitleFile(segments, subtitlePath, audioPath); err != nil {
-		return fmt.Errorf("failed to create subtitles: %w", err)
-	}
-
 	// 4. Burn subtitles
 	if err := BurnSubtitles(videoPath, subtitlePath, outputVideoPath, fontPath); err != nil {
 		return fmt.Errorf("failed to burn subtitles: %w", err)
@@ -133,7 +112,6 @@ func ProcessVideo(apiKey, videoPath string) error {
 	return nil
 }
 
-// Helper: min function
 func min(a, b int) int {
 	if a < b {
 		return a
