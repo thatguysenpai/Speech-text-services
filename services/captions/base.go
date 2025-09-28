@@ -23,48 +23,48 @@ func GetAudioDuration(audioPath string) (float64, error) {
 	return strconv.ParseFloat(durationStr, 64)
 }
 
-// CreateSubtitleFile writes SRT subtitles by distributing text evenly over audio duration.
-func CreateSubtitleFile(segments []openai.TranscriptionSegment, subtitlePath, audioPath string) error {
-	duration, err := GetAudioDuration(audioPath)
-	if err != nil {
-		return fmt.Errorf("failed to get audio duration: %w", err)
-	}
+// // CreateSubtitleFile writes SRT subtitles by distributing text evenly over audio duration.
+// func CreateSubtitleFile(segments []openai.TranscriptionSegment, subtitlePath, audioPath string) error {
+// 	duration, err := GetAudioDuration(audioPath)
+// 	if err != nil {
+// 		return fmt.Errorf("failed to get audio duration: %w", err)
+// 	}
 
-	f, err := os.Create(subtitlePath)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
+// 	f, err := os.Create(subtitlePath)
+// 	if err != nil {
+// 		return err
+// 	}
+// 	defer f.Close()
 
-	text := strings.TrimSpace(segments[0].Text)
-	words := strings.Fields(text)
+// 	text := strings.TrimSpace(segments[0].Text)
+// 	words := strings.Fields(text)
 
-	// Adjustable: number of words per subtitle block
-	chunkSize := 6
-	numChunks := (len(words) + chunkSize - 1) / chunkSize
-	chunkDuration := duration / float64(numChunks)
+// 	// Adjustable: number of words per subtitle block
+// 	chunkSize := 6
+// 	numChunks := (len(words) + chunkSize - 1) / chunkSize
+// 	chunkDuration := duration / float64(numChunks)
 
-	index := 1
-	for i := 0; i < len(words); i += chunkSize {
-		startTime := float64((i / chunkSize)) * chunkDuration
-		endTime := startTime + chunkDuration
+// 	index := 1
+// 	for i := 0; i < len(words); i += chunkSize {
+// 		startTime := float64((i / chunkSize)) * chunkDuration
+// 		endTime := startTime + chunkDuration
 
-		chunk := strings.Join(words[i:min(i+chunkSize, len(words))], " ")
+// 		chunk := strings.Join(words[i:min(i+chunkSize, len(words))], " ")
 
-		_, err := fmt.Fprintf(f, "%d\n%s --> %s\n%s\n\n",
-			index,
-			FormatTimestamp(startTime),
-			FormatTimestamp(endTime),
-			chunk,
-		)
-		if err != nil {
-			return err
-		}
-		index++
-	}
+// 		_, err := fmt.Fprintf(f, "%d\n%s --> %s\n%s\n\n",
+// 			index,
+// 			FormatTimestamp(startTime),
+// 			FormatTimestamp(endTime),
+// 			chunk,
+// 		)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		index++
+// 	}
 
-	return nil
-}
+// 	return nil
+// }
 
 // FormatTimestamp converts seconds to SRT time format.
 func FormatTimestamp(seconds float64) string {
