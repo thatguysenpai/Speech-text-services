@@ -14,23 +14,18 @@ import (
 	"sync"
 )
 
-// Voice type (replace with enum if needed)
 type Voice string
 
-// Endpoint config struct
 type Endpoint struct {
 	URL      string `json:"url"`
 	Response string `json:"response"`
 }
 
-// Main TTS function
 func TTS(text string, voice Voice, outputFilePath string, playSound bool, logger *log.Logger) error {
-	// Validate args
 	if err := validateArgs(text, voice); err != nil {
 		return err
 	}
 
-	// Load endpoints
 	endpoints, err := loadEndpoints()
 	if err != nil {
 		logger.Printf("An error as occured, err: %v", err)
@@ -44,11 +39,6 @@ func TTS(text string, voice Voice, outputFilePath string, playSound bool, logger
 			if err := saveAudioFile(outputFilePath, audioBytes); err != nil {
 				logger.Printf("An error as occured, err: %v", err)
 				return err
-			}
-
-			// Optionally play sound
-			if playSound {
-				// Example: exec.Command("mpg123", outputFilePath).Run()
 			}
 
 			success = true
@@ -118,12 +108,11 @@ func fetchAudioBytes(endpoint Endpoint, text string, voice Voice, logger *log.Lo
 		return nil, errors.New("failed to fetch some chunks")
 	}
 
-	// Concatenate & decode base64
 	fullBase64 := strings.Join(audioChunks, "")
 	return base64.StdEncoding.DecodeString(fullBase64)
 }
 
-// Load endpoints from JSON
+
 func loadEndpoints() ([]Endpoint, error) {
 	execPath, _ := os.Getwd()
 	jsonFilePath := filepath.Join(execPath, "internal/config", "config.json")
