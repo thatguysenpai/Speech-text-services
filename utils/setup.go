@@ -120,7 +120,6 @@ func SetupWhisper(logger *log.Logger) error {
 		logger.Println("whisper.cpp already exists")
 	}
 
-
 	makeCmd := exec.Command("make")
 	makeCmd.Dir = repoDir
 	makeCmd.Stdout = os.Stdout
@@ -140,4 +139,54 @@ func SetupWhisper(logger *log.Logger) error {
 	logger.Printf("Set CGO_LDFLAGS=%s", os.Getenv("CGO_LDFLAGS"))
 
 	return nil
+}
+
+func SetupFFprobe(logger *log.Logger) {
+	// Check if ffprobe exists
+	_, err := exec.LookPath("ffprobe")
+	if err == nil {
+		logger.Println("ffprobe is already installed ✅")
+		return
+	}
+
+	logger.Println("ffprobe not found, installing...")
+
+	switch runtime.GOOS {
+	case "linux":
+		installFFprobeLinux()
+	case "darwin":
+		installFFprobeMac()
+	case "windows":
+		installFFprobeWindows()
+	default:
+		log.Fatalf("Unsupported OS: %s. Please install ffprobe manually.", runtime.GOOS)
+	}
+}
+
+func installFFprobeLinux() {
+	cmd := exec.Command("bash", "-c", "sudo apt-get update && sudo apt-get install -y ffmpeg")
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	if err := cmd.Run(); err != nil {
+		log.Fatalf("Failed to install ffprobe on Linux: %v", err)
+	}
+}
+
+func installFFprobeMac() {
+	cmd := exec.Command("brew", "install", "ffmpeg")
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	if err := cmd.Run(); err != nil {
+		log.Fatalf("Failed to install ffprobe on macOS: %v", err)
+	}
+}
+
+func installFFprobeWindows() {
+	fmt.Println("Please install ffprobe manually on Windows via https://ffmpeg.org/download.html or Chocolatey:")
+	cmd := exec.Command("choco", "install", "ffmpeg", "-y")
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	if err := cmd.Run(); err != nil {
+		log.Fatalf("Failed to install ffprobe on Windows: %v", err)
+	}
 }
