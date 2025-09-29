@@ -7,6 +7,7 @@ import (
 	"sts/internal/models"
 	"sts/services/stt"
 	"sts/services/tts"
+	"sts/services/ai/gemini"
 	"sts/utils"
 )
 
@@ -40,4 +41,11 @@ func main() {
 	}
 
 	lg.Println("TTS completed, saved to", outputFile)
+
+	// Test Gemini AI
+	resp, err := ai.SendPrompt(config.GEMINI_API_KEY, "Write me a greeting in 3 languages")
+	if err != nil {
+		log.Fatalf("Gemini error: %v", err)
+	}
+	lg.Println("Gemini says:", resp)
 }

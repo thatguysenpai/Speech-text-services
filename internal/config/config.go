@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	GEMINI_API_KEY = ""
+	GEMINI_API_KEY = "AIzaSyCtrp1MAZHVbIexNel_omP5aMuJeByQfn4"
 )
 
 func LoadEnv(log *log.Logger) {
