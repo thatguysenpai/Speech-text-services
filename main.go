@@ -5,9 +5,9 @@ import (
 
 	"sts/internal/config"
 	"sts/internal/models"
+	// "sts/services/ai/gemini"
 	"sts/services/stt"
 	"sts/services/tts"
-	"sts/services/ai/gemini"
 	"sts/utils"
 )
 
@@ -31,7 +31,7 @@ func main() {
 	lg.Println("processing videos")
 	stt.ProcessAllVideos(lg)
 
-	text := "hello hi bonjour "
+	text := "hello hi, how can i help you today "
 	//voice := tts.Voice("en_us_001")
 	outputFile := "output.mp3"
 
@@ -43,9 +43,9 @@ func main() {
 	lg.Println("TTS completed, saved to", outputFile)
 
 	// Test Gemini AI
-	resp, err := ai.SendPrompt(config.GEMINI_API_KEY, "Write me a greeting in 3 languages")
-	if err != nil {
-		log.Fatalf("Gemini error: %v", err)
-	}
-	lg.Println("Gemini says:", resp)
+	// resp, err := gemini.SendPrompt("", "Write me a greeting in 3 languages")
+	// if err != nil {
+	// 	log.Fatalf("Gemini error: %v", err)
+	// }
+	// lg.Println("Gemini says:", resp)
 }

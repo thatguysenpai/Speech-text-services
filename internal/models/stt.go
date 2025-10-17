@@ -1,8 +1,8 @@
 package models
 
 import (
-	"time"
 	"strings"
+	"time"
 )
 
 // SegmentResult represents transcription output with timestamps
@@ -12,23 +12,21 @@ type SegmentResult struct {
 	Text  string        `json:"text"`
 }
 
-
-
 // Voice represents a text-to-speech voice option.
 type Voice string
 
 // Enum-like constants for voices.
 const (
 	// DISNEY VOICES
-	GHOSTFACE     Voice = "en_us_ghostface"
-	CHEWBACCA     Voice = "en_us_chewbacca"
-	C3PO          Voice = "en_us_c3po"
-	STITCH        Voice = "en_us_stitch"
-	STORMTROOPER  Voice = "en_us_stormtrooper"
-	ROCKET        Voice = "en_us_rocket"
-	MADAME_LEOTA  Voice = "en_female_madam_leota"
-	GHOST_HOST    Voice = "en_male_ghosthost"
-	PIRATE        Voice = "en_male_pirate"
+	GHOSTFACE    Voice = "en_us_ghostface"
+	CHEWBACCA    Voice = "en_us_chewbacca"
+	C3PO         Voice = "en_us_c3po"
+	STITCH       Voice = "en_us_stitch"
+	STORMTROOPER Voice = "en_us_stormtrooper"
+	ROCKET       Voice = "en_us_rocket"
+	MADAME_LEOTA Voice = "en_female_madam_leota"
+	GHOST_HOST   Voice = "en_male_ghosthost"
+	PIRATE       Voice = "en_male_pirate"
 
 	// ENGLISH VOICES
 	AU_FEMALE_1           Voice = "en_au_001"
@@ -75,27 +73,27 @@ const (
 	ES_MALE   Voice = "es_002"
 
 	// AMERICA VOICES
-	ES_MX_MALE      Voice = "es_mx_002"
-	BR_FEMALE_1     Voice = "br_001"
-	BR_FEMALE_2     Voice = "br_003"
-	BR_FEMALE_3     Voice = "br_004"
-	BR_MALE         Voice = "br_005"
-	BP_FEMALE_IVETE Voice = "bp_female_ivete"
+	ES_MX_MALE         Voice = "es_mx_002"
+	BR_FEMALE_1        Voice = "br_001"
+	BR_FEMALE_2        Voice = "br_003"
+	BR_FEMALE_3        Voice = "br_004"
+	BR_MALE            Voice = "br_005"
+	BP_FEMALE_IVETE    Voice = "bp_female_ivete"
 	BP_FEMALE_LUDMILLA Voice = "bp_female_ludmilla"
-	PT_FEMALE_LHAYS   Voice = "pt_female_lhays"
-	PT_FEMALE_LAIZZA  Voice = "pt_female_laizza"
-	PT_MALE_BUENO     Voice = "pt_male_bueno"
+	PT_FEMALE_LHAYS    Voice = "pt_female_lhays"
+	PT_FEMALE_LAIZZA   Voice = "pt_female_laizza"
+	PT_MALE_BUENO      Voice = "pt_male_bueno"
 
 	// ASIA VOICES
-	ID_FEMALE             Voice = "id_001"
-	JP_FEMALE_1           Voice = "jp_001"
-	JP_FEMALE_2           Voice = "jp_003"
-	JP_FEMALE_3           Voice = "jp_005"
-	JP_MALE               Voice = "jp_006"
-	KR_MALE_1             Voice = "kr_002"
-	KR_FEMALE             Voice = "kr_003"
-	KR_MALE_2             Voice = "kr_004"
-	JP_FEMALE_FUJICOCHAN  Voice = "jp_female_fujicochan"
+	ID_FEMALE               Voice = "id_001"
+	JP_FEMALE_1             Voice = "jp_001"
+	JP_FEMALE_2             Voice = "jp_003"
+	JP_FEMALE_3             Voice = "jp_005"
+	JP_MALE                 Voice = "jp_006"
+	KR_MALE_1               Voice = "kr_002"
+	KR_FEMALE               Voice = "kr_003"
+	KR_MALE_2               Voice = "kr_004"
+	JP_FEMALE_FUJICOCHAN    Voice = "jp_female_fujicochan"
 	JP_FEMALE_HASEGAWARIONA Voice = "jp_female_hasegawariona"
 	JP_MALE_KEIICHINAKANO   Voice = "jp_male_keiichinakano"
 	JP_FEMALE_OOMAEAIIKA    Voice = "jp_female_oomaeaika"
@@ -124,8 +122,8 @@ const (
 	SING_MALE_FUNNY_THANKSGIVING Voice = "en_male_sing_funny_thanksgiving"
 
 	// OTHER
-	MALE_NARRATION Voice = "en_male_narration"
-	MALE_FUNNY     Voice = "en_male_funny"
+	MALE_NARRATION   Voice = "en_male_narration"
+	MALE_FUNNY       Voice = "en_male_funny"
 	FEMALE_EMOTIONAL Voice = "en_female_emotional"
 )
 

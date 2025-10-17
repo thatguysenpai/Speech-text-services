@@ -1,81 +1,47 @@
 package gemini
 
 import (
-	"bytes"
-	"encoding/json"
+	"context"
 	"fmt"
-	"io"
-	"net/http"
+
+	"google.golang.org/genai"
+
+	"sts/internal/config"
 )
 
-// Request/Response shapes
-type geminiRequest struct {
-	Contents []struct {
-		Parts []struct {
-			Text string `json:"text"`
-		} `json:"parts"`
-	} `json:"contents"`
-}
+// SendPrompt sends a prompt to Gemini with optional system instructions
+func SendPrompt(systemPrompt, userPrompt string) (string, error) {
+	ctx := context.Background()
 
-type geminiResponse struct {
-	Candidates []struct {
-		Content struct {
-			Parts []struct {
-				Text string `json:"text"`
-			} `json:"parts"`
-		} `json:"content"`
-	} `json:"candidates"`
-}
-
-// SendPrompt sends a prompt to Gemini and returns the text response
-func SendPrompt(apiKey, prompt string) (string, error) {
-	url := "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + apiKey
-
-	// build request
-	reqBody := geminiRequest{
-		Contents: []struct {
-			Parts []struct {
-				Text string `json:"text"`
-			} `json:"parts"`
-		}{
-			{
-				Parts: []struct {
-					Text string `json:"text"`
-				}{
-					{Text: prompt},
-				},
-			},
-		},
+	config := genai.ClientConfig{
+		APIKey: config.GEMINI_API_KEY,
 	}
 
-	data, err := json.Marshal(reqBody)
+	client, err := genai.NewClient(ctx, &config)
 	if err != nil {
-		return "", fmt.Errorf("marshal request: %w", err)
+		return "", fmt.Errorf("failed to create Gemini client: %w", err)
 	}
 
-	resp, err := http.Post(url, "application/json", bytes.NewBuffer(data))
+	model := client.GenerativeModel("gemini-1.5-flash")
+
+	if systemPrompt != "" {
+		model.SystemInstruction = &genai.Content{
+			Parts: []genai.Part{genai.Text(systemPrompt)},
+		}
+	}
+
+	resp, err := model.GenerateContent(ctx,
+		genai.Text(userPrompt),
+	)
 	if err != nil {
-		return "", fmt.Errorf("http request failed: %w", err)
-	}
-	defer resp.Body.Close()
-
-	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return "", fmt.Errorf("read response: %w", err)
+		return "", fmt.Errorf("generation failed: %w", err)
 	}
 
-	if resp.StatusCode != http.StatusOK {
-		return "", fmt.Errorf("non-200 response: %s", string(body))
+	if len(resp.Candidates) > 0 && len(resp.Candidates[0].Content.Parts) > 0 {
+		if textPart, ok := resp.Candidates[0].Content.Parts[0].(genai.Text); ok {
+			return string(textPart), nil
+		}
 	}
 
-	var gr geminiResponse
-	if err := json.Unmarshal(body, &gr); err != nil {
-		return "", fmt.Errorf("unmarshal response: %w", err)
-	}
-
-	if len(gr.Candidates) > 0 && len(gr.Candidates[0].Content.Parts) > 0 {
-		return gr.Candidates[0].Content.Parts[0].Text, nil
-	}
-
-	return "", fmt.Errorf("no response text found")
+	return "", fmt.Errorf("no text response found")
 }
